@@ -1,0 +1,58 @@
+<view class="container">
+  <view class="pet-list">
+    <view class="pet-card" wx:for="{{pets}}" wx:key="id">
+      <view class="pet-header">
+        <view class="pet-avatar">
+          <text class="pet-emoji">{{item.type === 'cat' ? '🐱' : item.type === 'dog' ? '🐕' : '🐾'}}</text>
+        </view>
+        <view class="pet-info">
+          <view class="pet-name-row">
+            <text class="pet-name">{{item.name}}</text>
+            <text class="pet-breed">{{item.breed}}</text>
+          </view>
+          <text class="pet-meta">{{item.gender === 'male' ? '弟弟' : '妹妹'}} · {{item.age}}岁 · {{item.weight}}kg</text>
+          <view class="pet-tags">
+            <text class="pet-tag" wx:if="{{item.isDefault}}">默认</text>
+            <text class="pet-tag" wx:if="{{item.isNeutered}}">已绝育</text>
+          </view>
+        </view>
+        <view class="pet-actions">
+          <text class="action-btn" data-id="{{item.id}}" bindtap="goToEditPet">编辑</text>
+          <text class="action-btn" data-id="{{item.id}}" bindtap="deletePet">删除</text>
+        </view>
+      </view>
+      
+      <view class="pet-details">
+        <view class="detail-item">
+          <text class="detail-label">健康状况</text>
+          <text class="detail-value">{{item.healthInfo}}</text>
+        </view>
+        <view class="detail-item">
+          <text class="detail-label">喂养说明</text>
+          <text class="detail-value">{{item.feedingNotes}}</text>
+        </view>
+        <view class="detail-item">
+          <text class="detail-label">性格特点</text>
+          <text class="detail-value">{{item.behaviorNotes}}</text>
+        </view>
+      </view>
+
+      <view class="set-default-btn" data-id="{{item.id}}" bindtap="setDefaultPet" wx:if="{{!item.isDefault}}">
+        设为默认宠物
+      </view>
+    </view>
+
+    <view class="empty-state" wx:if="{{pets.length === 0}}">
+      <text class="empty-icon">🐾</text>
+      <text class="empty-text">还没有添加宠物</text>
+      <text class="empty-desc">点击下方按钮添加您的宠物</text>
+    </view>
+  </view>
+
+  <view class="add-btn-fixed">
+    <button class="btn-primary" bindtap="goToAddPet">
+      <text class="btn-icon">+</text>
+      添加宠物
+    </button>
+  </view>
+</view>

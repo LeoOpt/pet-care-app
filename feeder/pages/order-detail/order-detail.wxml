@@ -1,0 +1,70 @@
+<view class="container" wx:if="{{order}}">
+  <view class="status-section card">
+    <view class="status-header">
+      <text class="status-text {{order.status}}">{{order.statusText}}</text>
+      <text class="status-desc">{{order.statusDesc}}</text>
+    </view>
+    <view class="create-time">下单时间：{{order.createTime}}</view>
+  </view>
+
+  <view class="user-section card">
+    <view class="section-title">用户信息</view>
+    <view class="user-info">
+      <view class="user-avatar avatar-text">{{order.userInfo.avatarLetter}}</view>
+      <view class="user-detail">
+        <text class="user-name">{{order.userInfo.name}}</text>
+        <text class="user-phone">{{order.userInfo.phone}}</text>
+      </view>
+      <button class="contact-btn" bindtap="contactUser">联系</button>
+    </view>
+  </view>
+
+  <view class="service-section card">
+    <view class="section-title">服务信息</view>
+    <view class="info-list">
+      <view class="info-item">
+        <text class="info-label">服务项目</text>
+        <text class="info-value">
+          <view wx:for="{{order.services}}" wx:key="index">
+            {{item.name}} (¥{{item.price}})
+          </view>
+        </text>
+      </view>
+      <view class="info-item">
+        <text class="info-label">服务宠物</text>
+        <text class="info-value">{{order.pets.join('、')}}</text>
+      </view>
+      <view class="info-item">
+        <text class="info-label">服务时间</text>
+        <text class="info-value">{{order.serviceTime}}</text>
+      </view>
+      <view class="info-item">
+        <text class="info-label">服务地址</text>
+        <text class="info-value">{{order.serviceAddress}}</text>
+      </view>
+      <view class="info-item" wx:if="{{order.remark}}">
+        <text class="info-label">备注信息</text>
+        <text class="info-value">{{order.remark}}</text>
+      </view>
+    </view>
+  </view>
+
+  <view class="fee-section card">
+    <view class="section-title">费用明细</view>
+    <view class="fee-list">
+      <view class="fee-item">
+        <text class="fee-name">服务费</text>
+        <text class="fee-price">¥{{order.feeDetails.serviceFee}}</text>
+      </view>
+      <view class="fee-total">
+        <text class="total-label">合计</text>
+        <text class="total-price">¥{{order.feeDetails.totalAmount}}</text>
+      </view>
+    </view>
+  </view>
+
+  <view class="action-section">
+    <button class="btn-primary" wx:if="{{order.status === 'pending'}}" bindtap="startService">开始服务</button>
+    <button class="btn-primary" wx:if="{{order.status === 'processing'}}" bindtap="completeService">完成服务</button>
+  </view>
+</view>

@@ -1,0 +1,271 @@
+.container {
+  padding: 30rpx;
+  padding-bottom: 150rpx;
+  background-color: #f5f5f5;
+}
+
+.section {
+  margin-bottom: 30rpx;
+}
+
+.section-title {
+  display: flex;
+  align-items: center;
+  padding: 30rpx;
+  border-bottom: 1rpx solid #f0f0f0;
+}
+
+.title-icon {
+  font-size: 40rpx;
+  margin-right: 15rpx;
+}
+
+.title-text {
+  font-size: 32rpx;
+  font-weight: bold;
+  color: #333333;
+}
+
+.service-types {
+  padding: 20rpx 30rpx;
+}
+
+.service-type-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 25rpx 0;
+  border-bottom: 1rpx solid #f0f0f0;
+  opacity: 0.5;
+}
+
+.service-type-item:last-child {
+  border-bottom: none;
+}
+
+.service-type-item.enabled {
+  opacity: 1;
+}
+
+.service-info {
+  flex: 1;
+}
+
+.service-name {
+  display: block;
+  font-size: 30rpx;
+  color: #333333;
+  font-weight: bold;
+  margin-bottom: 8rpx;
+}
+
+.service-desc {
+  display: block;
+  font-size: 24rpx;
+  color: #999999;
+}
+
+.price-list {
+  padding: 20rpx 30rpx;
+}
+
+.price-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 25rpx 0;
+  border-bottom: 1rpx solid #f0f0f0;
+}
+
+.price-item:last-child {
+  border-bottom: none;
+}
+
+.price-label {
+  font-size: 28rpx;
+  color: #333333;
+  flex: 1;
+}
+
+.price-input-wrapper {
+  display: flex;
+  align-items: center;
+  background-color: #f9f9f9;
+  padding: 15rpx 20rpx;
+  border-radius: 8rpx;
+}
+
+.price-symbol {
+  font-size: 28rpx;
+  color: #FF9D5C;
+  font-weight: bold;
+  margin-right: 5rpx;
+}
+
+.price-input {
+  width: 120rpx;
+  font-size: 28rpx;
+  color: #333333;
+  text-align: center;
+}
+
+.price-unit {
+  font-size: 24rpx;
+  color: #999999;
+  margin-left: 10rpx;
+}
+
+.time-settings {
+  padding: 20rpx 30rpx;
+}
+
+.time-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 25rpx 0;
+  border-bottom: 1rpx solid #f0f0f0;
+}
+
+.time-row:last-child {
+  border-bottom: none;
+}
+
+.time-label {
+  font-size: 28rpx;
+  color: #333333;
+}
+
+.time-picker {
+  display: flex;
+  align-items: center;
+  padding: 15rpx 25rpx;
+  background-color: #f9f9f9;
+  border-radius: 8rpx;
+  font-size: 28rpx;
+  color: #666666;
+}
+
+.arrow {
+  margin-left: 15rpx;
+  color: #999999;
+  font-size: 32rpx;
+}
+
+.area-settings {
+  padding: 20rpx 30rpx;
+}
+
+.area-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 25rpx 0;
+  border-bottom: 1rpx solid #f0f0f0;
+}
+
+.area-label {
+  font-size: 28rpx;
+  color: #333333;
+  flex: 1;
+}
+
+.area-value {
+  display: flex;
+  align-items: center;
+}
+
+.area-input {
+  width: 120rpx;
+  padding: 15rpx 20rpx;
+  background-color: #f9f9f9;
+  border-radius: 8rpx;
+  font-size: 28rpx;
+  color: #333333;
+  text-align: center;
+}
+
+.area-unit {
+  font-size: 24rpx;
+  color: #999999;
+  margin-left: 10rpx;
+}
+
+.area-tip {
+  font-size: 24rpx;
+  color: #FF9D5C;
+  margin-top: 15rpx;
+  margin-bottom: 20rpx;
+}
+
+.area-list {
+  margin-top: 20rpx;
+}
+
+.area-item-header {
+  font-size: 28rpx;
+  font-weight: bold;
+  color: #333333;
+  margin-bottom: 20rpx;
+}
+
+.area-item {
+  display: flex;
+  align-items: center;
+  padding: 20rpx 0;
+  border-bottom: 1rpx solid #f0f0f0;
+}
+
+.area-item:last-child {
+  border-bottom: none;
+}
+
+.area-checkbox {
+  width: 44rpx;
+  height: 44rpx;
+  border: 4rpx solid #d9d9d9;
+  border-radius: 8rpx;
+  margin-right: 20rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 28rpx;
+  color: #ffffff;
+  background-color: #ffffff;
+  transition: all 0.3s;
+}
+
+.area-item.selected .area-checkbox {
+  background-color: #FF9D5C;
+  border-color: #FF9D5C;
+}
+
+.area-name {
+  font-size: 28rpx;
+  color: #333333;
+}
+
+.action-section {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 30rpx;
+  background-color: #ffffff;
+  box-shadow: 0 -4rpx 20rpx rgba(0, 0, 0, 0.05);
+}
+
+.save-btn {
+  width: 100%;
+  padding: 25rpx;
+  background-color: #FF9D5C;
+  color: #ffffff;
+  border-radius: 50rpx;
+  font-size: 32rpx;
+  border: none;
+  font-weight: bold;
+}
+
+.save-btn:active {
+  opacity: 0.8;
+}

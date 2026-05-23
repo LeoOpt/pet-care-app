@@ -1,0 +1,193 @@
+.container {
+  padding: 0;
+}
+
+.tab-bar {
+  display: flex;
+  background-color: #ffffff;
+  padding: 30rpx 0;
+  border-bottom: 1rpx solid #f0f0f0;
+  overflow-x: auto;
+  white-space: nowrap;
+}
+
+.tab-item {
+  flex: 0 0 auto;
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0 30rpx;
+  position: relative;
+}
+
+.tab-text {
+  font-size: 28rpx;
+  color: #666666;
+  transition: all 0.3s;
+}
+
+.tab-item.active .tab-text {
+  color: #FF9D5C;
+  font-weight: bold;
+}
+
+.tab-line {
+  position: absolute;
+  bottom: -10rpx;
+  width: 60rpx;
+  height: 6rpx;
+  background-color: #FF9D5C;
+  border-radius: 3rpx;
+}
+
+.order-list {
+  padding: 30rpx;
+}
+
+.order-card {
+  padding: 30rpx;
+  margin-bottom: 20rpx;
+}
+
+.order-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20rpx;
+  padding-bottom: 20rpx;
+  border-bottom: 1rpx solid #f0f0f0;
+}
+
+.order-id {
+  font-size: 24rpx;
+  color: #999999;
+}
+
+.order-status {
+  font-size: 26rpx;
+  font-weight: bold;
+}
+
+.order-status.unpaid {
+  color: #FF9800;
+}
+
+.order-status.pending {
+  color: #FF9800;
+}
+
+.order-status.processing {
+  color: #2196F3;
+}
+
+.order-status.completed {
+  color: #4CAF50;
+}
+
+.order-body {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.feeder-info {
+  display: flex;
+  align-items: center;
+  flex: 1;
+}
+
+.feeder-avatar {
+  width: 80rpx;
+  height: 80rpx;
+  border-radius: 50%;
+  background-color: #f0f0f0;
+  margin-right: 20rpx;
+}
+
+.avatar-text {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #FF9D5C;
+  color: white;
+  font-size: 36rpx;
+  font-weight: bold;
+}
+
+.feeder-detail {
+  display: flex;
+  flex-direction: column;
+  gap: 8rpx;
+}
+
+.feeder-name {
+  font-size: 30rpx;
+  font-weight: bold;
+  color: #333333;
+}
+
+.service-names {
+  font-size: 26rpx;
+  color: #666666;
+}
+
+.order-meta {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 10rpx;
+}
+
+.service-time {
+  font-size: 24rpx;
+  color: #999999;
+}
+
+.order-price {
+  font-size: 32rpx;
+  color: #FF9D5C;
+  font-weight: bold;
+}
+
+.order-pets {
+  margin-top: 15rpx;
+  padding-top: 15rpx;
+  border-top: 1rpx solid #f0f0f0;
+}
+
+.pets-label {
+  font-size: 24rpx;
+  color: #999999;
+}
+
+.pets-names {
+  font-size: 24rpx;
+  color: #666666;
+}
+
+.empty-state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 100rpx 0;
+}
+
+.empty-icon {
+  font-size: 100rpx;
+  margin-bottom: 30rpx;
+}
+
+.empty-text {
+  font-size: 28rpx;
+  color: #999999;
+  margin-bottom: 30rpx;
+}
+
+.empty-btn {
+  padding: 20rpx 40rpx;
+  background-color: #FF9D5C;
+  color: #ffffff;
+  border-radius: 50rpx;
+  font-size: 28rpx;
+  border: none;
+}

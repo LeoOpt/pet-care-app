@@ -1,0 +1,82 @@
+<view class="container">
+  <view class="search-bar">
+    <view class="search-box">
+      <text class="search-icon">🔍</text>
+      <input 
+        class="search-input" 
+        placeholder="搜索喂养师或服务" 
+        value="{{searchKeyword}}"
+        bindconfirm="onSearch"
+        bindinput="onSearch"
+      />
+    </view>
+  </view>
+
+  <view class="service-section">
+    <view class="section-title">服务类型</view>
+    <view class="service-grid">
+      <view 
+        class="service-item" 
+        wx:for="{{serviceTypes}}" 
+        wx:key="id"
+        data-id="{{item.id}}"
+        data-name="{{item.name}}"
+        bindtap="onServiceTap"
+      >
+        <view class="service-icon" style="background-color: {{item.color}}">
+          <text class="icon-text">{{item.name[0]}}</text>
+        </view>
+        <text class="service-name">{{item.name}}</text>
+        <text class="service-desc">{{item.desc}}</text>
+      </view>
+    </view>
+  </view>
+
+  <view class="feeder-section">
+    <view class="section-header">
+      <text class="section-title">热门喂养师</text>
+      <text class="more-btn">查看更多 ›</text>
+    </view>
+    
+    <view class="feeder-list">
+      <view 
+        class="feeder-card card"
+        wx:for="{{feeders}}"
+        wx:key="id"
+        data-id="{{item.id}}"
+        bindtap="onFeederTap"
+      >
+        <view class="feeder-header">
+          <view class="avatar-wrapper">
+            <view class="avatar avatar-text">{{item.avatarLetter}}</view>
+            <view class="verified-badge" wx:if="{{item.isVerified}}">✓</view>
+          </view>
+          <view class="feeder-info">
+            <view class="feeder-name-row">
+              <text class="feeder-name">{{item.name}}</text>
+              <text class="rating">★ {{item.rating}}</text>
+            </view>
+            <text class="review-count">{{item.reviewCount}}条评价 · {{item.distance}}</text>
+          </view>
+          <view class="feeder-price">
+            <text class="price">¥{{item.price}}</text>
+            <text class="price-unit">起</text>
+          </view>
+        </view>
+        
+        <view class="feeder-intro">{{item.intro}}</view>
+        
+        <view class="feeder-tags">
+          <text class="tag" wx:for="{{item.tags}}" wx:for-item="tag" wx:key="index">{{tag}}</text>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <view class="publish-btn-fixed">
+    <button class="btn-primary" bindtap="goToPublish">
+      <text class="btn-icon">+</text>
+      发布需求
+    </button>
+  </view>
+</view>

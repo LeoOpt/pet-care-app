@@ -1,0 +1,90 @@
+<view class="container">
+  <view class="summary-card">
+    <view class="summary-header">
+      <text class="summary-title">可提现余额</text>
+      <text class="summary-balance">¥{{summary.withdrawable}}</text>
+    </view>
+    
+    <view class="withdraw-section">
+      <button class="withdraw-btn" bindtap="onWithdrawTap">提现</button>
+      <view class="withdraw-history" bindtap="onWithdrawHistoryTap">
+        <text class="history-icon">📜</text>
+        <text class="history-text">提现记录</text>
+      </view>
+    </view>
+  </view>
+
+  <view class="stats-card">
+    <view class="stats-header">
+      <text class="stats-title">收入统计</text>
+      <text class="total-amount">累计收入 ¥{{summary.total}}</text>
+    </view>
+    
+    <view class="tab-bar">
+      <view 
+        class="tab-item {{currentTab === index ? 'active' : ''}}"
+        wx:for="{{tabs}}"
+        wx:key="index"
+        data-index="{{index}}"
+        bindtap="onTabChange"
+      >
+        <text class="tab-text">{{item}}</text>
+        <view class="tab-line" wx:if="{{currentTab === index}}"></view>
+      </view>
+    </view>
+    
+    <view class="current-income">
+      <text class="income-label">当前收入</text>
+      <text class="income-amount">¥{{summary.today}}</text>
+      <text class="income-unit" wx:if="{{currentTab === 0}}">今日</text>
+      <text class="income-unit" wx:elif="{{currentTab === 1}}">本周</text>
+      <text class="income-unit" wx:else>本月</text>
+    </view>
+  </view>
+
+  <view class="income-section">
+    <view class="section-header">
+      <text class="section-title">收入明细</text>
+      <text class="section-count">{{incomeList.length}} 笔</text>
+    </view>
+    
+    <view class="income-list">
+      <view 
+        class="income-card card"
+        wx:for="{{incomeList}}"
+        wx:key="id"
+        data-id="{{item.id}}"
+        bindtap="onIncomeTap"
+      >
+        <view class="income-header">
+          <view class="owner-info">
+            <view class="owner-avatar avatar-text">{{item.ownerAvatarLetter}}</view>
+            <view class="owner-detail">
+              <text class="owner-name">{{item.ownerName}}</text>
+              <text class="order-id">订单号：{{item.orderId}}</text>
+            </view>
+          </view>
+          <view class="income-status {{item.status}}">
+            <text class="status-text">{{item.statusText}}</text>
+          </view>
+        </view>
+        
+        <view class="income-body">
+          <view class="service-info">
+            <text class="service-names">{{item.services.join('、')}}</text>
+            <text class="service-time">服务时间：{{item.serviceTime}}</text>
+          </view>
+          <view class="income-amount-wrapper">
+            <text class="income-symbol">+</text>
+            <text class="income-value">¥{{item.amount}}</text>
+          </view>
+        </view>
+      </view>
+
+      <view class="empty-state" wx:if="{{incomeList.length === 0}}">
+        <text class="empty-icon">💰</text>
+        <text class="empty-text">暂无收入记录</text>
+      </view>
+    </view>
+  </view>
+</view>

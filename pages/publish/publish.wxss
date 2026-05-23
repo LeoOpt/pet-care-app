@@ -1,0 +1,315 @@
+.container {
+  padding: 30rpx;
+  padding-bottom: 120rpx;
+}
+
+.step-indicator {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 40rpx;
+  padding: 30rpx 0;
+  background-color: #ffffff;
+  border-radius: 20rpx;
+}
+
+.step-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+}
+
+.step-num {
+  width: 50rpx;
+  height: 50rpx;
+  border-radius: 50%;
+  background-color: #e0e0e0;
+  color: #ffffff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 26rpx;
+  font-weight: bold;
+  margin-bottom: 10rpx;
+}
+
+.step-item.active .step-num {
+  background-color: #FF9D5C;
+}
+
+.step-text {
+  font-size: 22rpx;
+  color: #999999;
+}
+
+.step-item.active .step-text {
+  color: #FF9D5C;
+}
+
+.step-line {
+  width: 60rpx;
+  height: 4rpx;
+  background-color: #e0e0e0;
+  margin: 0 15rpx;
+  margin-bottom: 30rpx;
+}
+
+.step-line.active {
+  background-color: #FF9D5C;
+}
+
+.step-content {
+  min-height: 500rpx;
+}
+
+.step-panel {
+  animation: fadeIn 0.3s;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20rpx); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.section-title {
+  font-size: 32rpx;
+  font-weight: bold;
+  color: #333333;
+  margin-bottom: 25rpx;
+}
+
+.pet-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20rpx;
+}
+
+.pet-item {
+  position: relative;
+  width: 200rpx;
+  padding: 30rpx 20rpx;
+  background-color: #ffffff;
+  border-radius: 16rpx;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border: 4rpx solid transparent;
+  transition: all 0.3s;
+}
+
+.pet-item.selected {
+  background-color: #FFF0E6;
+  border-color: #FF9D5C;
+}
+
+.pet-emoji {
+  font-size: 60rpx;
+  margin-bottom: 15rpx;
+}
+
+.pet-name {
+  font-size: 26rpx;
+  color: #333333;
+}
+
+.check-icon {
+  position: absolute;
+  top: 10rpx;
+  right: 10rpx;
+  width: 36rpx;
+  height: 36rpx;
+  background-color: #FF9D5C;
+  color: #ffffff;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 22rpx;
+}
+
+.service-list {
+  display: flex;
+  flex-direction: column;
+  gap: 15rpx;
+}
+
+.service-item {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 30rpx;
+  background-color: #ffffff;
+  border-radius: 12rpx;
+  border: 4rpx solid transparent;
+  transition: all 0.3s;
+}
+
+.service-item.selected {
+  background-color: #FFF0E6;
+  border-color: #FF9D5C;
+}
+
+.service-name {
+  font-size: 28rpx;
+  color: #333333;
+}
+
+.service-price {
+  font-size: 30rpx;
+  color: #FF9D5C;
+  font-weight: bold;
+}
+
+.service-item .check-icon {
+  position: absolute;
+  top: -8rpx;
+  right: -8rpx;
+}
+
+.time-row {
+  display: flex;
+  gap: 20rpx;
+}
+
+.time-picker {
+  flex: 1;
+  padding: 30rpx;
+  background-color: #ffffff;
+  border-radius: 12rpx;
+  text-align: center;
+  font-size: 28rpx;
+  color: #666666;
+}
+
+.info-card {
+  background-color: #ffffff;
+  border-radius: 16rpx;
+  padding: 30rpx;
+  margin-bottom: 20rpx;
+}
+
+.info-title {
+  font-size: 30rpx;
+  font-weight: bold;
+  color: #333333;
+  margin-bottom: 20rpx;
+}
+
+.address-row {
+  display: flex;
+  gap: 15rpx;
+}
+
+.address-input {
+  flex: 1;
+  padding: 25rpx;
+  background-color: #f9f9f9;
+  border-radius: 12rpx;
+  font-size: 28rpx;
+}
+
+.location-btn {
+  width: 100rpx;
+  height: 100rpx;
+  background-color: #FF9D5C;
+  color: #ffffff;
+  border-radius: 12rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 40rpx;
+  border: none;
+  padding: 0;
+}
+
+.remark-input {
+  width: 100%;
+  min-height: 150rpx;
+  padding: 25rpx;
+  background-color: #f9f9f9;
+  border-radius: 12rpx;
+  font-size: 28rpx;
+  box-sizing: border-box;
+}
+
+.fee-list {
+  display: flex;
+  flex-direction: column;
+  gap: 15rpx;
+}
+
+.fee-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15rpx 0;
+}
+
+.fee-name {
+  font-size: 28rpx;
+  color: #666666;
+}
+
+.fee-price {
+  font-size: 28rpx;
+  color: #333333;
+}
+
+.fee-total {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 20rpx;
+  border-top: 2rpx solid #f0f0f0;
+  margin-top: 10rpx;
+}
+
+.total-label {
+  font-size: 30rpx;
+  font-weight: bold;
+  color: #333333;
+}
+
+.total-price {
+  font-size: 36rpx;
+  font-weight: bold;
+  color: #FF9D5C;
+}
+
+.action-section {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  gap: 20rpx;
+  padding: 30rpx;
+  background-color: #ffffff;
+  box-shadow: 0 -4rpx 20rpx rgba(0, 0, 0, 0.05);
+}
+
+.btn-default,
+.btn-primary {
+  flex: 1;
+  padding: 25rpx;
+  font-size: 30rpx;
+  border-radius: 50rpx;
+  border: none;
+}
+
+.btn-default {
+  background-color: #ffffff;
+  color: #999999;
+  border: 2rpx solid #dddddd;
+}
+
+.btn-primary {
+  background-color: #FF9D5C;
+  color: #ffffff;
+}
+
+.btn-primary.half {
+  flex: 2;
+}

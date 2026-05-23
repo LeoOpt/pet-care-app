@@ -1,0 +1,76 @@
+<view class="container">
+  <view class="feeder-header card">
+    <view class="header-top">
+      <view class="avatar avatar-text">{{feeder.avatarLetter}}</view>
+      <view class="feeder-basic">
+        <view class="feeder-name">{{feeder.name}}</view>
+        <view class="feeder-stats">
+          <text class="rating">★ {{feeder.rating}}</text>
+          <text class="review-count">{{feeder.reviewCount}}条评价</text>
+        </view>
+        <view class="feeder-distance">{{feeder.distance}}</view>
+      </view>
+      <button class="contact-btn" bindtap="contactFeeder">联系</button>
+    </view>
+    
+    <view class="feeder-tags">
+      <text class="tag" wx:for="{{feeder.tags}}" wx:key="index">{{item}}</text>
+    </view>
+  </view>
+
+  <view class="intro-section card">
+    <view class="section-title">个人简介</view>
+    <text class="intro-text">{{feeder.intro}}</text>
+  </view>
+
+  <view class="services-section card">
+    <view class="section-title">服务项目及收费</view>
+    <view class="service-list">
+      <view 
+        class="service-item {{selectedServiceIndex === index ? 'selected' : ''}}"
+        wx:for="{{feeder.services}}"
+        wx:key="index"
+        data-index="{{index}}"
+        bindtap="onServiceSelect"
+      >
+        <view class="service-info">
+          <text class="service-name">{{item.name}}</text>
+          <text class="service-price">¥{{item.price}}/{{item.unit}}</text>
+        </view>
+        <view class="select-indicator" wx:if="{{selectedServiceIndex === index}}">✓</view>
+      </view>
+    </view>
+  </view>
+
+  <view class="certifications-section card">
+    <view class="section-title">资质认证</view>
+    <view class="cert-list">
+      <text class="cert-item" wx:for="{{feeder.certifications}}" wx:key="index">✓ {{item}}</text>
+    </view>
+  </view>
+
+  <view class="reviews-section card">
+    <view class="section-title">用户评价</view>
+    <view class="review-list">
+      <view class="review-item" wx:for="{{reviews}}" wx:key="id">
+        <view class="review-header">
+          <view class="review-avatar avatar-text">{{item.avatarLetter}}</view>
+          <view class="review-user">
+            <text class="user-name">{{item.userName}}</text>
+            <text class="review-rating">★ {{item.rating}}</text>
+          </view>
+          <text class="review-date">{{item.date}}</text>
+        </view>
+        <text class="review-content">{{item.content}}</text>
+      </view>
+    </view>
+  </view>
+
+  <view class="book-section">
+    <view class="book-info">
+      <text class="book-price">¥{{feeder.services[selectedServiceIndex].price}}</text>
+      <text class="book-unit">/{{feeder.services[selectedServiceIndex].unit}}</text>
+    </view>
+    <button class="book-btn" bindtap="bookService">立即预约</button>
+  </view>
+</view>

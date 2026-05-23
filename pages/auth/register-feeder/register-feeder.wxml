@@ -1,0 +1,151 @@
+<view class="container">
+  <view class="step-indicator">
+    <view class="step-item {{step >= 1 ? 'active' : ''}}">
+      <view class="step-num">1</view>
+      <text class="step-text">基本信息</text>
+    </view>
+    <view class="step-line {{step > 1 ? 'active' : ''}}"></view>
+    <view class="step-item {{step >= 2 ? 'active' : ''}}">
+      <view class="step-num">2</view>
+      <text class="step-text">身份认证</text>
+    </view>
+    <view class="step-line {{step > 2 ? 'active' : ''}}"></view>
+    <view class="step-item {{step >= 3 ? 'active' : ''}}">
+      <view class="step-num">3</view>
+      <text class="step-text">提交审核</text>
+    </view>
+  </view>
+
+  <view class="step-content">
+    <view wx:if="{{step === 1}}" class="step-panel">
+      <view class="form-section">
+        <view class="section-title">基本信息</view>
+        
+        <view class="form-item">
+          <text class="form-label required">真实姓名</text>
+          <input 
+            class="form-input" 
+            placeholder="请输入您的真实姓名"
+            value="{{formData.realName}}"
+            data-field="realName"
+            bindinput="onInputChange"
+          />
+        </view>
+
+        <view class="form-item">
+          <text class="form-label required">身份证号码</text>
+          <input 
+            class="form-input" 
+            placeholder="请输入18位身份证号码"
+            value="{{formData.idCard}}"
+            data-field="idCard"
+            bindinput="onInputChange"
+            maxlength="18"
+          />
+        </view>
+      </view>
+
+      <view class="form-section">
+        <view class="section-title">资质认证（可选）</view>
+        <view class="certification-list">
+          <view 
+            class="cert-item {{formData.certificationType === 'pet_care' ? 'selected' : ''}}"
+            data-type="pet_care"
+            bindtap="onCertificationTypeChange"
+          >
+            <text class="cert-icon">🐾</text>
+            <text class="cert-name">宠物护理证书</text>
+          </view>
+          <view 
+            class="cert-item {{formData.certificationType === 'pet_beauty' ? 'selected' : ''}}"
+            data-type="pet_beauty"
+            bindtap="onCertificationTypeChange"
+          >
+            <text class="cert-icon">✂️</text>
+            <text class="cert-name">宠物美容证书</text>
+          </view>
+          <view 
+            class="cert-item {{formData.certificationType === 'vet' ? 'selected' : ''}}"
+            data-type="vet"
+            bindtap="onCertificationTypeChange"
+          >
+            <text class="cert-icon">🏥</text>
+            <text class="cert-name">兽医资质</text>
+          </view>
+        </view>
+      </view>
+    </view>
+
+    <view wx:if="{{step === 2}}" class="step-panel">
+      <view class="form-section">
+        <view class="section-title">身份证照片</view>
+        
+        <view class="image-upload-row">
+          <view class="image-upload-item">
+            <view class="upload-box" bindtap="chooseImage" data-type="idCardFront">
+              <image wx:if="{{formData.idCardFront}}" src="{{formData.idCardFront}}" mode="aspectFill" class="uploaded-image"></image>
+              <view wx:else class="upload-placeholder">
+                <text class="upload-icon">📷</text>
+                <text class="upload-text">身份证正面</text>
+              </view>
+            </view>
+            <text class="upload-tip">请上传清晰的照片</text>
+          </view>
+
+          <view class="image-upload-item">
+            <view class="upload-box" bindtap="chooseImage" data-type="idCardBack">
+              <image wx:if="{{formData.idCardBack}}" src="{{formData.idCardBack}}" mode="aspectFill" class="uploaded-image"></image>
+              <view wx:else class="upload-placeholder">
+                <text class="upload-icon">📷</text>
+                <text class="upload-text">身份证背面</text>
+              </view>
+            </view>
+            <text class="upload-tip">请上传清晰的照片</text>
+          </view>
+        </view>
+      </view>
+
+      <view class="notice-card">
+        <text class="notice-title">温馨提示</text>
+        <text class="notice-content">1. 请确保照片清晰可见，信息完整</text>
+        <text class="notice-content">2. 身份证必须在有效期内</text>
+        <text class="notice-content">3. 照片不能有遮挡或模糊</text>
+        <text class="notice-content">4. 审核结果将在1-3个工作日内通知</text>
+      </view>
+    </view>
+
+    <view wx:if="{{step === 3}}" class="step-panel">
+      <view class="success-icon">✓</view>
+      <text class="success-title">信息确认</text>
+      <text class="success-desc">请确认您提交的信息准确无误</text>
+
+      <view class="info-card">
+        <view class="info-row">
+          <text class="info-label">真实姓名</text>
+          <text class="info-value">{{formData.realName}}</text>
+        </view>
+        <view class="info-row">
+          <text class="info-label">身份证号</text>
+          <text class="info-value">{{formData.idCard}}</text>
+        </view>
+        <view class="info-row" wx:if="{{formData.certificationType}}">
+          <text class="info-label">资质认证</text>
+          <text class="info-value">{{formData.certificationType === 'pet_care' ? '宠物护理证书' : formData.certificationType === 'pet_beauty' ? '宠物美容证书' : '兽医资质'}}</text>
+        </view>
+      </view>
+
+      <view class="agreement-text">
+        点击"提交审核"即表示同意
+        <text class="link">《服务者协议》</text>
+        和
+        <text class="link">《隐私政策》</text>
+      </view>
+    </view>
+  </view>
+
+  <view class="action-section">
+    <button class="btn-default" wx:if="{{step > 1}}" bindtap="prevStep">上一步</button>
+    <button class="btn-primary {{step > 1 ? 'half' : ''}}" wx:if="{{step < 3}}" bindtap="nextStep">下一步</button>
+    <button class="btn-primary {{step > 1 ? 'half' : ''}}" wx:if="{{step === 3}}" bindtap="submitCertification">提交审核</button>
+  </view>
+</view>

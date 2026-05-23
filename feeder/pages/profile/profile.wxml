@@ -1,0 +1,110 @@
+<view class="container">
+  <view class="profile-header">
+    <view class="user-info">
+      <view class="avatar avatar-text">{{userInfo.avatarLetter}}</view>
+      <view class="user-detail">
+        <text class="nickname">{{userInfo.nickName}}</text>
+        <text class="rating">★ {{userInfo.rating}}</text>
+      </view>
+    </view>
+    
+    <view class="stats-row">
+      <view class="stat-item">
+        <text class="stat-value">{{stats.monthOrders}}</text>
+        <text class="stat-label">本月订单</text>
+      </view>
+      <view class="stat-divider"></view>
+      <view class="stat-item">
+        <text class="stat-value">¥{{stats.monthIncome}}</text>
+        <text class="stat-label">本月收入</text>
+      </view>
+      <view class="stat-divider"></view>
+      <view class="stat-item">
+        <text class="stat-value">{{stats.avgRating}}</text>
+        <text class="stat-label">平均评分</text>
+      </view>
+    </view>
+  </view>
+
+  <view class="balance-card" bindtap="goToIncome">
+    <view class="balance-info">
+      <text class="balance-label">可提现余额</text>
+      <text class="balance-value">¥{{userInfo.balance}}</text>
+    </view>
+    <text class="arrow">›</text>
+  </view>
+
+  <view class="menu-section">
+    <view class="menu-item" bindtap="goToMyOrders">
+      <view class="menu-left">
+        <text class="menu-icon">📋</text>
+        <text class="menu-name">我的订单</text>
+      </view>
+      <text class="menu-arrow">›</text>
+    </view>
+    
+    <view class="menu-item" bindtap="goToIncome">
+      <view class="menu-left">
+        <text class="menu-icon">💰</text>
+        <text class="menu-name">收入统计</text>
+      </view>
+      <text class="menu-arrow">›</text>
+    </view>
+    
+    <view class="menu-item" bindtap="goToSettings">
+      <view class="menu-left">
+        <text class="menu-icon">⚙️</text>
+        <text class="menu-name">服务设置</text>
+      </view>
+      <text class="menu-arrow">›</text>
+    </view>
+
+    <view class="menu-item" wx:if="{{!isVerified}}" bindtap="goToRegister">
+      <view class="menu-left">
+        <text class="menu-icon">📝</text>
+        <text class="menu-name">实名认证</text>
+        <text class="badge warning">未认证</text>
+      </view>
+      <text class="menu-arrow">›</text>
+    </view>
+
+    <view class="menu-item" wx:if="{{isVerified}}">
+      <view class="menu-left">
+        <text class="menu-icon">✅</text>
+        <text class="menu-name">实名认证</text>
+        <text class="badge success">已认证</text>
+      </view>
+      <text class="menu-arrow">›</text>
+    </view>
+  </view>
+
+  <view class="menu-section">
+    <view class="menu-item">
+      <view class="menu-left">
+        <text class="menu-icon">❓</text>
+        <text class="menu-name">帮助中心</text>
+      </view>
+      <text class="menu-arrow">›</text>
+    </view>
+    
+    <view class="menu-item">
+      <view class="menu-left">
+        <text class="menu-icon">💬</text>
+        <text class="menu-name">联系客服</text>
+      </view>
+      <text class="menu-arrow">›</text>
+    </view>
+    
+    <view class="menu-item">
+      <view class="menu-left">
+        <text class="menu-icon">📜</text>
+        <text class="menu-name">服务协议</text>
+      </view>
+      <text class="menu-arrow">›</text>
+    </view>
+  </view>
+
+  <view class="switch-section">
+    <button class="switch-btn" bindtap="switchToUser">切换为用户</button>
+  </view>
+</view>

@@ -1,0 +1,83 @@
+<view class="container">
+  <view class="form-section">
+    <view class="section-title">服务类型配置</view>
+    <view class="service-list">
+      <view 
+        class="service-item" 
+        wx:for="{{serviceTypes}}"
+        wx:key="id"
+      >
+        <view class="service-left">
+          <switch 
+            checked="{{item.enabled}}" 
+            color="#FF9D5C"
+            data-id="{{item.id}}"
+            bindchange="toggleService"
+          />
+          <text class="service-name">{{item.name}}</text>
+        </view>
+        <view class="service-right">
+          <text class="currency">¥</text>
+          <input 
+            class="price-input" 
+            type="number" 
+            value="{{item.price}}"
+            data-id="{{item.id}}"
+            bindinput="onPriceChange"
+            placeholder="价格"
+          />
+          <text class="unit">/次</text>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <view class="form-section">
+    <view class="section-title">服务时间设置</view>
+    <view class="time-row">
+      <view class="time-item">
+        <text class="time-label">开始接单时间</text>
+        <picker mode="time" value="{{serviceTime.startHour}}:{{serviceTime.startMinute}}" bindchange="onServiceTimeChange" data-field="startTime">
+          <view class="time-picker">
+            <text>{{serviceTime.startHour}}:{{serviceTime.startMinute}}</text>
+          </view>
+        </picker>
+      </view>
+      <view class="time-item">
+        <text class="time-label">结束接单时间</text>
+        <picker mode="time" value="{{serviceTime.endHour}}:{{serviceTime.endMinute}}" bindchange="onServiceTimeChange" data-field="endTime">
+          <view class="time-picker">
+            <text>{{serviceTime.endHour}}:{{serviceTime.endMinute}}</text>
+          </view>
+        </picker>
+      </view>
+    </view>
+  </view>
+
+  <view class="form-section">
+    <view class="section-title">服务区域设置</view>
+    <view class="area-row">
+      <text class="area-label">服务范围半径</text>
+      <view class="area-input-wrapper">
+        <input 
+          class="area-input" 
+          type="number"
+          value="{{serviceArea.radius}}"
+          data-field="radius"
+          bindinput="onServiceAreaChange"
+        />
+        <text class="area-unit">公里</text>
+      </view>
+    </view>
+    <view class="region-list">
+      <text class="region-title">可选服务区域：</text>
+      <view class="region-tags">
+        <text class="region-tag" wx:for="{{serviceArea.regions}}" wx:key="index">{{item}}</text>
+      </view>
+    </view>
+  </view>
+
+  <view class="save-section">
+    <button class="btn-primary" bindtap="saveSettings">保存设置</button>
+  </view>
+</view>

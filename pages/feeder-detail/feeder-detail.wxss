@@ -1,0 +1,274 @@
+.container {
+  padding: 30rpx;
+  padding-bottom: 140rpx;
+}
+
+.feeder-header {
+  padding: 30rpx;
+  margin-bottom: 20rpx;
+}
+
+.header-top {
+  display: flex;
+  align-items: flex-start;
+  margin-bottom: 25rpx;
+}
+
+.avatar {
+  width: 140rpx;
+  height: 140rpx;
+  border-radius: 50%;
+  background-color: #f0f0f0;
+  margin-right: 25rpx;
+}
+
+.avatar-text {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #FF9D5C;
+  color: white;
+  font-size: 48rpx;
+  font-weight: bold;
+}
+
+.feeder-basic {
+  flex: 1;
+}
+
+.feeder-name {
+  font-size: 36rpx;
+  font-weight: bold;
+  color: #333333;
+  margin-bottom: 12rpx;
+}
+
+.feeder-stats {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10rpx;
+}
+
+.rating {
+  color: #FF9D5C;
+  font-size: 28rpx;
+  margin-right: 15rpx;
+}
+
+.review-count {
+  color: #999999;
+  font-size: 24rpx;
+}
+
+.feeder-distance {
+  color: #999999;
+  font-size: 24rpx;
+}
+
+.contact-btn {
+  padding: 15rpx 30rpx;
+  background-color: #FF9D5C;
+  color: #ffffff;
+  border-radius: 50rpx;
+  font-size: 26rpx;
+  border: none;
+}
+
+.feeder-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15rpx;
+}
+
+.tag {
+  display: inline-block;
+  background-color: #FFF0E6;
+  color: #FF9D5C;
+  padding: 10rpx 20rpx;
+  border-radius: 8rpx;
+  font-size: 24rpx;
+}
+
+.intro-section,
+.services-section,
+.certifications-section,
+.reviews-section {
+  margin-bottom: 20rpx;
+}
+
+.section-title {
+  font-size: 32rpx;
+  font-weight: bold;
+  color: #333333;
+  margin-bottom: 20rpx;
+}
+
+.intro-text {
+  font-size: 28rpx;
+  color: #666666;
+  line-height: 1.8;
+}
+
+.service-list {
+  display: flex;
+  flex-direction: column;
+  gap: 15rpx;
+}
+
+.service-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 25rpx;
+  background-color: #f9f9f9;
+  border-radius: 12rpx;
+  border: 4rpx solid transparent;
+  transition: all 0.3s;
+}
+
+.service-item.selected {
+  background-color: #FFF0E6;
+  border-color: #FF9D5C;
+}
+
+.service-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex: 1;
+}
+
+.service-name {
+  font-size: 28rpx;
+  color: #333333;
+}
+
+.service-price {
+  font-size: 30rpx;
+  color: #FF9D5C;
+  font-weight: bold;
+}
+
+.select-indicator {
+  width: 40rpx;
+  height: 40rpx;
+  background-color: #FF9D5C;
+  color: #ffffff;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 24rpx;
+  margin-left: 20rpx;
+}
+
+.cert-list {
+  display: flex;
+  flex-direction: column;
+  gap: 15rpx;
+}
+
+.cert-item {
+  font-size: 26rpx;
+  color: #666666;
+}
+
+.review-list {
+  display: flex;
+  flex-direction: column;
+  gap: 25rpx;
+}
+
+.review-item {
+  padding-bottom: 25rpx;
+  border-bottom: 1rpx solid #f0f0f0;
+}
+
+.review-item:last-child {
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+.review-header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 15rpx;
+}
+
+.review-avatar {
+  width: 70rpx;
+  height: 70rpx;
+  border-radius: 50%;
+  background-color: #f0f0f0;
+  margin-right: 15rpx;
+  font-size: 28rpx;
+  font-weight: bold;
+}
+
+.review-user {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  gap: 15rpx;
+}
+
+.user-name {
+  font-size: 28rpx;
+  color: #333333;
+  font-weight: bold;
+}
+
+.review-rating {
+  font-size: 24rpx;
+  color: #FF9D5C;
+}
+
+.review-date {
+  font-size: 24rpx;
+  color: #999999;
+}
+
+.review-content {
+  font-size: 26rpx;
+  color: #666666;
+  line-height: 1.6;
+}
+
+.book-section {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 30rpx;
+  background-color: #ffffff;
+  box-shadow: 0 -4rpx 20rpx rgba(0, 0, 0, 0.05);
+}
+
+.book-info {
+  display: flex;
+  align-items: baseline;
+}
+
+.book-price {
+  font-size: 48rpx;
+  color: #FF9D5C;
+  font-weight: bold;
+}
+
+.book-unit {
+  font-size: 26rpx;
+  color: #999999;
+  margin-left: 5rpx;
+}
+
+.book-btn {
+  padding: 25rpx 60rpx;
+  background-color: #FF9D5C;
+  color: #ffffff;
+  border-radius: 50rpx;
+  font-size: 32rpx;
+  border: none;
+}

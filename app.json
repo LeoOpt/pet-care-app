@@ -1,0 +1,47 @@
+{
+  "pages": [
+    "pages/home/home",
+    "pages/publish/publish",
+    "pages/pets/pets",
+    "pages/pets/add-pet/add-pet",
+    "pages/pets/edit-pet/edit-pet",
+    "pages/orders/orders",
+    "pages/order-detail/order-detail",
+    "pages/profile/profile",
+    "pages/auth/register-feeder/register-feeder",
+    "feeder/pages/home/home",
+    "feeder/pages/my-orders/my-orders",
+    "feeder/pages/order-detail/order-detail",
+    "feeder/pages/income/income",
+    "feeder/pages/settings/settings",
+    "feeder/pages/profile/profile"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#FF9D5C",
+    "navigationBarTitleText": "宠物上门喂养",
+    "navigationBarTextStyle": "white"
+  },
+  "tabBar": {
+    "color": "#999999",
+    "selectedColor": "#FF9D5C",
+    "backgroundColor": "#ffffff",
+    "borderStyle": "black",
+    "list": [
+      {
+        "pagePath": "pages/home/home",
+        "text": "首页"
+      },
+      {
+        "pagePath": "pages/orders/orders",
+        "text": "订单"
+      },
+      {
+        "pagePath": "pages/profile/profile",
+        "text": "我的"
+      }
+    ]
+  },
+  "style": "v2",
+  "sitemapLocation": "sitemap.json"
+}

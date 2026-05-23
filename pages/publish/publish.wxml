@@ -1,0 +1,122 @@
+<view class="container">
+  <view class="step-indicator">
+    <view class="step-item {{step >= 1 ? 'active' : ''}}">
+      <view class="step-num">1</view>
+      <text class="step-text">选择宠物</text>
+    </view>
+    <view class="step-line {{step > 1 ? 'active' : ''}}"></view>
+    <view class="step-item {{step >= 2 ? 'active' : ''}}">
+      <view class="step-num">2</view>
+      <text class="step-text">选择服务</text>
+    </view>
+    <view class="step-line {{step > 2 ? 'active' : ''}}"></view>
+    <view class="step-item {{step >= 3 ? 'active' : ''}}">
+      <view class="step-num">3</view>
+      <text class="step-text">选择时间</text>
+    </view>
+    <view class="step-line {{step > 3 ? 'active' : ''}}"></view>
+    <view class="step-item {{step >= 4 ? 'active' : ''}}">
+      <view class="step-num">4</view>
+      <text class="step-text">确认订单</text>
+    </view>
+  </view>
+
+  <view class="step-content">
+    <view wx:if="{{step === 1}}" class="step-panel">
+      <view class="section-title">选择宠物</view>
+      <view class="pet-list">
+        <view 
+          class="pet-item {{selectedPets.indexOf(item.id) > -1 ? 'selected' : ''}}"
+          wx:for="{{pets}}"
+          wx:key="id"
+          data-id="{{item.id}}"
+          bindtap="onPetSelect"
+        >
+          <text class="pet-emoji">{{item.type === 'cat' ? '🐱' : '🐕'}}</text>
+          <text class="pet-name">{{item.name}}</text>
+          <view class="check-icon" wx:if="{{selectedPets.indexOf(item.id) > -1}}">✓</view>
+        </view>
+      </view>
+    </view>
+
+    <view wx:if="{{step === 2}}" class="step-panel">
+      <view class="section-title">选择服务类型</view>
+      <view class="service-list">
+        <view 
+          class="service-item {{service.selected ? 'selected' : ''}}"
+          wx:for="{{serviceTypes}}"
+          wx:key="id"
+          data-id="{{item.id}}"
+          bindtap="onServiceSelect"
+        >
+          <text class="service-name">{{item.name}}</text>
+          <text class="service-price">¥{{item.price}}</text>
+          <view class="check-icon" wx:if="{{item.selected}}">✓</view>
+        </view>
+      </view>
+    </view>
+
+    <view wx:if="{{step === 3}}" class="step-panel">
+      <view class="section-title">选择服务时间</view>
+      <view class="time-row">
+        <picker mode="date" bindchange="onDateChange">
+          <view class="time-picker">
+            <text>{{serviceDate || '选择日期'}}</text>
+          </view>
+        </picker>
+        <picker mode="time" bindchange="onTimeChange">
+          <view class="time-picker">
+            <text>{{serviceTime || '选择时间'}}</text>
+          </view>
+        </picker>
+      </view>
+    </view>
+
+    <view wx:if="{{step === 4}}" class="step-panel">
+      <view class="section-title">确认订单信息</view>
+      
+      <view class="info-card">
+        <view class="info-title">服务地址</view>
+        <view class="address-row">
+          <input 
+            class="address-input" 
+            placeholder="请输入服务地址"
+            value="{{serviceAddress}}"
+            bindinput="onAddressInput"
+          />
+          <button class="location-btn" bindtap="chooseLocation">📍</button>
+        </view>
+      </view>
+
+      <view class="info-card">
+        <view class="info-title">备注信息</view>
+        <textarea 
+          class="remark-input"
+          placeholder="请输入备注信息（如宠物习性、特殊要求等）"
+          value="{{remark}}"
+          bindinput="onRemarkInput"
+        />
+      </view>
+
+      <view class="info-card">
+        <view class="info-title">费用明细</view>
+        <view class="fee-list">
+          <view class="fee-item" wx:for="{{serviceTypes}}" wx:if="{{item.selected}}" wx:key="id">
+            <text class="fee-name">{{item.name}}</text>
+            <text class="fee-price">¥{{item.price}}</text>
+          </view>
+          <view class="fee-total">
+            <text class="total-label">合计</text>
+            <text class="total-price">¥{{totalAmount}}</text>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <view class="action-section">
+    <button class="btn-default" wx:if="{{step > 1}}" bindtap="prevStep">上一步</button>
+    <button class="btn-primary {{step > 1 ? 'half' : ''}}" wx:if="{{step < 4}}" bindtap="nextStep">下一步</button>
+    <button class="btn-primary {{step > 1 ? 'half' : ''}}" wx:if="{{step === 4}}" bindtap="submitOrder">提交订单</button>
+  </view>
+</view>

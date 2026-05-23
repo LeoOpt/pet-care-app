@@ -1,0 +1,157 @@
+.container {
+  padding: 30rpx;
+  padding-bottom: 120rpx;
+}
+
+.form-section {
+  background-color: #ffffff;
+  border-radius: 20rpx;
+  padding: 30rpx;
+  margin-bottom: 30rpx;
+}
+
+.section-title {
+  font-size: 30rpx;
+  font-weight: bold;
+  color: #333333;
+  margin-bottom: 25rpx;
+}
+
+.type-selector {
+  display: flex;
+  gap: 20rpx;
+}
+
+.type-item {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 30rpx 20rpx;
+  background-color: #f9f9f9;
+  border-radius: 16rpx;
+  border: 4rpx solid transparent;
+  transition: all 0.3s;
+}
+
+.type-item.selected {
+  background-color: #FFF0E6;
+  border-color: #FF9D5C;
+}
+
+.type-emoji {
+  font-size: 60rpx;
+  margin-bottom: 15rpx;
+}
+
+.type-name {
+  font-size: 26rpx;
+  color: #333333;
+}
+
+.gender-selector {
+  display: flex;
+  gap: 20rpx;
+}
+
+.gender-item {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 25rpx;
+  background-color: #f9f9f9;
+  border-radius: 12rpx;
+  border: 4rpx solid transparent;
+  transition: all 0.3s;
+}
+
+.gender-item.selected {
+  background-color: #FFF0E6;
+  border-color: #FF9D5C;
+}
+
+.gender-icon {
+  font-size: 36rpx;
+  margin-right: 10rpx;
+}
+
+.gender-name {
+  font-size: 28rpx;
+  color: #333333;
+}
+
+.form-item {
+  margin-bottom: 25rpx;
+}
+
+.form-item:last-child {
+  margin-bottom: 0;
+}
+
+.form-label {
+  display: block;
+  font-size: 28rpx;
+  color: #333333;
+  margin-bottom: 15rpx;
+}
+
+.form-label.required::after {
+  content: ' *';
+  color: #FF9D5C;
+}
+
+.form-label-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15rpx;
+}
+
+.form-input {
+  width: 100%;
+  padding: 20rpx;
+  background-color: #f9f9f9;
+  border-radius: 12rpx;
+  font-size: 28rpx;
+  box-sizing: border-box;
+}
+
+.form-textarea {
+  width: 100%;
+  min-height: 150rpx;
+  padding: 20rpx;
+  background-color: #f9f9f9;
+  border-radius: 12rpx;
+  font-size: 28rpx;
+  box-sizing: border-box;
+}
+
+.form-row {
+  display: flex;
+  gap: 20rpx;
+}
+
+.form-item.half {
+  flex: 1;
+}
+
+.save-section {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 30rpx;
+  background-color: #ffffff;
+  box-shadow: 0 -4rpx 20rpx rgba(0, 0, 0, 0.05);
+}
+
+.save-btn {
+  width: 100%;
+  padding: 25rpx;
+  font-size: 32rpx;
+  border-radius: 50rpx;
+  background-color: #FF9D5C;
+  color: #ffffff;
+  border: none;
+}

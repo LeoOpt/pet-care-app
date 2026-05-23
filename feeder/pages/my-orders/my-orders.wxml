@@ -1,0 +1,64 @@
+<view class="container">
+  <view class="tab-bar">
+    <view 
+      class="tab-item {{currentTab === index ? 'active' : ''}}"
+      wx:for="{{tabs}}"
+      wx:key="index"
+      data-index="{{index}}"
+      bindtap="onTabChange"
+    >
+      <text class="tab-text">{{item}}</text>
+      <view class="tab-line" wx:if="{{currentTab === index}}"></view>
+    </view>
+  </view>
+
+  <view class="order-list">
+    <view 
+      class="order-card card"
+      wx:for="{{orders}}"
+      wx:key="id"
+      wx:if="{{(currentTab === 0 && item.status === 'processing') || (currentTab === 1 && item.status === 'completed')}}"
+      data-id="{{item.id}}"
+      bindtap="onOrderTap"
+    >
+      <view class="order-header">
+        <text class="order-id">订单号：{{item.id}}</text>
+        <text class="order-status {{item.status}}">{{item.statusText}}</text>
+      </view>
+      
+      <view class="order-body">
+        <view class="owner-info">
+          <view class="owner-avatar avatar-text">{{item.ownerAvatarLetter}}</view>
+          <view class="owner-detail">
+            <text class="owner-name">{{item.ownerName}}</text>
+            <text class="service-names">{{item.services.join('、')}}</text>
+            <text class="pets-info">宠物：{{item.pets.join('、')}}</text>
+          </view>
+        </view>
+        <view class="order-meta">
+          <text class="service-time">服务时间：{{item.serviceTime}}</text>
+          <text class="order-price">¥{{item.price}}</text>
+        </view>
+      </view>
+
+      <view class="order-footer">
+        <text class="service-address">服务地址：{{item.serviceAddress}}</text>
+      </view>
+    </view>
+
+    <view class="empty-state" wx:if="{{showEmptyAll}}">
+      <text class="empty-icon">📋</text>
+      <text class="empty-text">暂无订单</text>
+    </view>
+
+    <view class="empty-state" wx:if="{{showEmptyProcessing}}">
+      <text class="empty-icon">🎉</text>
+      <text class="empty-text">暂无进行中订单</text>
+    </view>
+
+    <view class="empty-state" wx:if="{{showEmptyCompleted}}">
+      <text class="empty-icon">✅</text>
+      <text class="empty-text">暂无已完成订单</text>
+    </view>
+  </view>
+</view>

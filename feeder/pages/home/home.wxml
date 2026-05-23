@@ -1,0 +1,120 @@
+<view class="container">
+  <view class="income-section">
+    <view class="income-header">
+      <text class="income-title">今日收入</text>
+      <text class="income-date">{{todayDate}}</text>
+    </view>
+    <view class="income-amount">
+      <text class="amount-symbol">¥</text>
+      <text class="amount-value">{{todayIncome}}</text>
+    </view>
+    <view class="income-stats">
+      <view class="stat-item">
+        <text class="stat-value">{{todayOrders}}</text>
+        <text class="stat-label">今日订单</text>
+      </view>
+      <view class="stat-divider"></view>
+      <view class="stat-item">
+        <text class="stat-value">{{monthIncome}}</text>
+        <text class="stat-label">本月收入</text>
+      </view>
+    </view>
+  </view>
+
+  <view class="filter-section">
+    <view class="filter-tabs">
+      <view 
+        class="filter-tab {{currentFilter === index ? 'active' : ''}}"
+        wx:for="{{filterOptions}}"
+        wx:key="index"
+        data-index="{{index}}"
+        bindtap="onFilterChange"
+      >
+        <text>{{item}}</text>
+      </view>
+    </view>
+  </view>
+
+  <view class="orders-section">
+    <view class="orders-header">
+      <text class="orders-title">可接订单</text>
+      <text class="orders-count">共{{availableOrders.length}}个订单</text>
+    </view>
+
+    <view class="orders-list">
+      <view 
+        class="order-card card"
+        wx:for="{{availableOrders}}"
+        wx:key="id"
+        data-id="{{item.id}}"
+        bindtap="onOrderDetail"
+      >
+        <view class="order-header">
+          <view class="order-id">订单号：{{item.orderId}}</view>
+          <view class="order-distance">{{item.distance}}</view>
+        </view>
+
+        <view class="order-content">
+          <view class="order-user">
+            <view class="user-avatar avatar avatar-text">{{item.userAvatarLetter}}</view>
+            <view class="user-info">
+              <text class="user-name">{{item.userName}}</text>
+              <text class="user-location">{{item.location}}</text>
+            </view>
+          </view>
+
+          <view class="order-services">
+            <view class="service-tag" wx:for="{{item.services}}" wx:for-item="service" wx:key="index">
+              <text>{{service}}</text>
+            </view>
+          </view>
+
+          <view class="order-details">
+            <view class="detail-item">
+              <text class="detail-label">服务时间</text>
+              <text class="detail-value">{{item.serviceTime}}</text>
+            </view>
+            <view class="detail-item">
+              <text class="detail-label">服务时长</text>
+              <text class="detail-value">{{item.duration}}</text>
+            </view>
+            <view class="detail-item">
+              <text class="detail-label">宠物数量</text>
+              <text class="detail-value">{{item.petCount}}只</text>
+            </view>
+          </view>
+        </view>
+
+        <view class="order-footer">
+          <view class="order-price">
+            <text class="price-value">¥{{item.price}}</text>
+            <text class="price-tip">预计收入</text>
+          </view>
+          <button 
+            class="accept-btn {{item.isAccepted ? 'accepted' : ''}}"
+            data-id="{{item.id}}"
+            bindtap="onAcceptOrder"
+            wx:if="{{!item.isAccepted}}"
+          >
+            接单
+          </button>
+          <view class="accepted-tag" wx:if="{{item.isAccepted}}">
+            已接单
+          </view>
+        </view>
+      </view>
+    </view>
+
+    <view class="empty-tip" wx:if="{{availableOrders.length === 0}}">
+      <text class="empty-icon">📭</text>
+      <text class="empty-text">暂无可接订单</text>
+    </view>
+  </view>
+
+  <view class="quick-action" wx:if="{{hasPendingOrders}}">
+    <button class="quick-accept-btn" bindtap="onQuickAccept">
+      <text class="quick-icon">⚡</text>
+      一键接单 ({{pendingCount}})
+    </button>
+  </view>
+</view>

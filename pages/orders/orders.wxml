@@ -1,0 +1,55 @@
+<view class="container">
+  <view class="tab-bar">
+    <view 
+      class="tab-item {{currentTab === index ? 'active' : ''}}"
+      wx:for="{{tabs}}"
+      wx:key="index"
+      data-index="{{index}}"
+      bindtap="onTabChange"
+    >
+      <text class="tab-text">{{item}}</text>
+      <view class="tab-line" wx:if="{{currentTab === index}}"></view>
+    </view>
+  </view>
+
+  <view class="order-list">
+    <block wx:for="{{orders}}" wx:key="id">
+      <view 
+        wx:if="{{currentTab === 0 || (currentTab === 1 && item.status === 'unpaid') || (currentTab === 2 && item.status === 'pending') || (currentTab === 3 && item.status === 'processing') || (currentTab === 4 && item.status === 'completed')}}"
+        class="order-card card"
+        data-id="{{item.id}}"
+        bindtap="onOrderTap"
+      >
+        <view class="order-header">
+          <text class="order-id">订单号：{{item.orderNo}}</text>
+          <text class="order-status {{item.status}}">{{item.statusText}}</text>
+        </view>
+        
+        <view class="order-body">
+          <view class="feeder-info">
+            <view class="feeder-avatar avatar-text">{{item.feederAvatarLetter}}</view>
+            <view class="feeder-detail">
+              <text class="feeder-name">{{item.feederName}}</text>
+              <text class="service-names">{{item.services.length > 0 ? item.services[0].name : ''}}{{item.services.length > 1 ? '等' + item.services.length + '项' : ''}}</text>
+            </view>
+          </view>
+          <view class="order-meta">
+            <text class="service-time">{{item.serviceTime}}</text>
+            <text class="order-price">¥{{item.totalAmount}}</text>
+          </view>
+        </view>
+
+        <view class="order-pets" wx:if="{{item.pets.length > 0}}">
+          <text class="pets-label">宠物：</text>
+          <text class="pets-names">{{item.pets.join('、')}}</text>
+        </view>
+      </view>
+    </block>
+
+    <view class="empty-state" wx:if="{{orders.length === 0}}">
+      <text class="empty-icon">📋</text>
+      <text class="empty-text">暂无订单</text>
+      <button class="empty-btn" bindtap="goToPets">去添加宠物</button>
+    </view>
+  </view>
+</view>

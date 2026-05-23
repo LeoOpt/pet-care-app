@@ -1,0 +1,159 @@
+<view class="container">
+  <view class="form-section">
+    <view class="section-title">宠物类型</view>
+    <view class="type-selector">
+      <view 
+        class="type-item {{petType === 'cat' ? 'selected' : ''}}"
+        data-type="cat"
+        bindtap="onPetTypeChange"
+      >
+        <text class="type-emoji">🐱</text>
+        <text class="type-name">猫咪</text>
+      </view>
+      <view 
+        class="type-item {{petType === 'dog' ? 'selected' : ''}}"
+        data-type="dog"
+        bindtap="onPetTypeChange"
+      >
+        <text class="type-emoji">🐕</text>
+        <text class="type-name">狗狗</text>
+      </view>
+      <view 
+        class="type-item {{petType === 'other' ? 'selected' : ''}}"
+        data-type="other"
+        bindtap="onPetTypeChange"
+      >
+        <text class="type-emoji">🐾</text>
+        <text class="type-name">其他</text>
+      </view>
+    </view>
+  </view>
+
+  <view class="form-section">
+    <view class="form-item">
+      <text class="form-label required">宠物名称</text>
+      <input 
+        class="form-input" 
+        placeholder="请输入宠物名称"
+        data-field="name"
+        bindinput="onInputChange"
+      />
+    </view>
+    
+    <view class="form-item">
+      <text class="form-label required">品种</text>
+      <input 
+        class="form-input" 
+        placeholder="如：英短、柯基、金毛"
+        data-field="breed"
+        bindinput="onInputChange"
+      />
+    </view>
+  </view>
+
+  <view class="form-section">
+    <view class="section-title">宠物性别</view>
+    <view class="gender-selector">
+      <view 
+        class="gender-item {{petGender === 'male' ? 'selected' : ''}}"
+        data-gender="male"
+        bindtap="onPetGenderChange"
+      >
+        <text class="gender-icon">♂️</text>
+        <text class="gender-name">弟弟</text>
+      </view>
+      <view 
+        class="gender-item {{petGender === 'female' ? 'selected' : ''}}"
+        data-gender="female"
+        bindtap="onPetGenderChange"
+      >
+        <text class="gender-icon">♀️</text>
+        <text class="gender-name">妹妹</text>
+      </view>
+    </view>
+  </view>
+
+  <view class="form-section">
+    <view class="form-row">
+      <view class="form-item half">
+        <text class="form-label">年龄（岁）</text>
+        <input 
+          class="form-input" 
+          type="number"
+          placeholder="0"
+          data-field="age"
+          bindinput="onInputChange"
+        />
+      </view>
+      <view class="form-item half">
+        <text class="form-label">体重（kg）</text>
+        <input 
+          class="form-input" 
+          type="digit"
+          placeholder="0"
+          data-field="weight"
+          bindinput="onInputChange"
+        />
+      </view>
+    </view>
+
+    <view class="form-item">
+      <view class="form-label-row">
+        <text class="form-label">是否绝育</text>
+      </view>
+      <switch 
+        checked="{{petForm.isNeutered}}" 
+        bindchange="onSwitchChange"
+        color="#FF9D5C"
+      />
+    </view>
+
+    <view class="form-item">
+      <text class="form-label">疫苗情况</text>
+      <input 
+        class="form-input" 
+        placeholder="如：已全部接种"
+        data-field="vaccinationStatus"
+        bindinput="onInputChange"
+      />
+    </view>
+  </view>
+
+  <view class="form-section">
+    <view class="section-title">详细信息</view>
+    
+    <view class="form-item">
+      <text class="form-label">健康状况</text>
+      <input 
+        class="form-input" 
+        placeholder="请描述宠物健康状况"
+        data-field="healthInfo"
+        bindinput="onInputChange"
+      />
+    </view>
+
+    <view class="form-item">
+      <text class="form-label">喂养说明</text>
+      <textarea 
+        class="form-textarea" 
+        placeholder="请描述宠物的饮食习惯、食量等"
+        data-field="feedingNotes"
+        bindinput="onInputChange"
+      />
+    </view>
+
+    <view class="form-item">
+      <text class="form-label">性格特点</text>
+      <textarea 
+        class="form-textarea" 
+        placeholder="请描述宠物的性格、注意事项等"
+        data-field="behaviorNotes"
+        bindinput="onInputChange"
+      />
+    </view>
+  </view>
+
+  <view class="save-section">
+    <button class="btn-primary save-btn" bindtap="savePet">保存</button>
+  </view>
+</view>

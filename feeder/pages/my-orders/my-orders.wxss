@@ -1,0 +1,173 @@
+.container {
+  padding: 0;
+}
+
+.tab-bar {
+  display: flex;
+  background-color: #ffffff;
+  padding: 30rpx 0;
+  border-bottom: 1rpx solid #f0f0f0;
+}
+
+.tab-item {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+}
+
+.tab-text {
+  font-size: 28rpx;
+  color: #666666;
+  transition: all 0.3s;
+}
+
+.tab-item.active .tab-text {
+  color: #FF9D5C;
+  font-weight: bold;
+}
+
+.tab-line {
+  position: absolute;
+  bottom: -10rpx;
+  width: 60rpx;
+  height: 6rpx;
+  background-color: #FF9D5C;
+  border-radius: 3rpx;
+}
+
+.order-list {
+  padding: 30rpx;
+}
+
+.order-card {
+  padding: 30rpx;
+  margin-bottom: 20rpx;
+}
+
+.order-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20rpx;
+  padding-bottom: 20rpx;
+  border-bottom: 1rpx solid #f0f0f0;
+}
+
+.order-id {
+  font-size: 24rpx;
+  color: #999999;
+}
+
+.order-status {
+  font-size: 26rpx;
+  font-weight: bold;
+}
+
+.order-status.processing {
+  color: #2196F3;
+}
+
+.order-status.completed {
+  color: #4CAF50;
+}
+
+.order-body {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.owner-info {
+  display: flex;
+  align-items: flex-start;
+  flex: 1;
+}
+
+.owner-avatar {
+  width: 80rpx;
+  height: 80rpx;
+  border-radius: 50%;
+  background-color: #f0f0f0;
+  margin-right: 20rpx;
+}
+
+.avatar-text {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #FF9D5C;
+  color: white;
+  font-size: 36rpx;
+  font-weight: bold;
+}
+
+.owner-detail {
+  display: flex;
+  flex-direction: column;
+  gap: 8rpx;
+}
+
+.owner-name {
+  font-size: 30rpx;
+  font-weight: bold;
+  color: #333333;
+}
+
+.service-names {
+  font-size: 26rpx;
+  color: #666666;
+}
+
+.pets-info {
+  font-size: 24rpx;
+  color: #999999;
+}
+
+.order-meta {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 10rpx;
+}
+
+.service-time {
+  font-size: 24rpx;
+  color: #999999;
+}
+
+.order-price {
+  font-size: 32rpx;
+  color: #FF9D5C;
+  font-weight: bold;
+}
+
+.order-footer {
+  margin-top: 20rpx;
+  padding-top: 20rpx;
+  border-top: 1rpx solid #f0f0f0;
+}
+
+.service-address {
+  font-size: 24rpx;
+  color: #666666;
+  line-height: 1.5;
+}
+
+.empty-state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 100rpx 0;
+}
+
+.empty-icon {
+  font-size: 100rpx;
+  margin-bottom: 30rpx;
+}
+
+.empty-text {
+  font-size: 28rpx;
+  color: #999999;
+}
