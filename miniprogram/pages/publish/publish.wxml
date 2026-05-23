@@ -1,0 +1,105 @@
+<!--pages/publish/publish.wxml-->
+<view class="container">
+  <!-- 选择宠物 -->
+  <view class="card">
+    <view class="section-title">
+      <text class="title-text">选择宠物</text>
+    </view>
+    <view class="pet-list">
+      <view 
+        wx:for="{{pets}}" 
+        wx:key="id" 
+        class="pet-item {{selectedPets.includes(item.id) ? 'selected' : ''}}"
+        data-id="{{item.id}}"
+        bindtap="togglePet"
+      >
+        <image class="pet-avatar" src="{{item.avatar}}" mode="aspectFill"></image>
+        <view class="pet-info">
+          <view class="pet-name">{{item.name}}</view>
+          <view class="pet-detail">{{item.breed}} · {{item.age}}岁</view>
+        </view>
+        <view wx:if="{{selectedPets.includes(item.id)}}" class="check-icon">✓</view>
+      </view>
+      <view class="add-pet">
+        <view class="add-icon">+</view>
+        <text>添加宠物</text>
+      </view>
+    </view>
+  </view>
+
+  <!-- 服务类型 -->
+  <view class="card">
+    <view class="section-title">
+      <text class="title-text">服务类型</text>
+    </view>
+    <view class="service-grid">
+      <view 
+        wx:for="{{serviceTypes}}" 
+        wx:key="*this" 
+        class="service-option {{selectedServices.includes(item) ? 'selected' : ''}}"
+        data-service="{{item}}"
+        bindtap="toggleService"
+      >
+        {{item}}
+        <view wx:if="{{selectedServices.includes(item)}}" class="service-check">✓</view>
+      </view>
+    </view>
+  </view>
+
+  <!-- 服务时间 -->
+  <view class="card">
+    <view class="section-title">
+      <text class="title-text">服务时间</text>
+    </view>
+    <view class="date-picker">
+      <view class="date-item">
+      <text class="date-label">开始日期</text>
+      <picker mode="date" value="{{startDate}}" bindchange="onStartDateChange">
+        <view class="date-value">{{startDate || '请选择'}}</view>
+      </picker>
+      </view>
+      <view class="date-separator">至</view>
+      <view class="date-item">
+      <text class="date-label">结束日期</text>
+      <picker mode="date" value="{{endDate}}" bindchange="onEndDateChange">
+        <view class="date-value">{{endDate || '请选择'}}</view>
+      </picker>
+      </view>
+    </view>
+  </view>
+
+  <!-- 服务地址 -->
+  <view class="card">
+    <view class="section-title">
+      <text class="title-text">服务地址</text>
+    </view>
+    <view class="address-input-wrapper">
+      <text class="address-icon">📍</text>
+      <input 
+        class="address-input" 
+        placeholder="请输入详细地址" 
+        value="{{address}}" 
+        bindinput="onAddressInput"
+      ></input>
+    </view>
+  </view>
+
+  <!-- 备注信息 -->
+  <view class="card">
+    <view class="section-title">
+      <text class="title-text">备注信息</text>
+    </view>
+    <textarea 
+      class="notes-textarea" 
+      placeholder="请输入其他特殊要求或注意事项" 
+      value="{{notes}}" 
+      bindinput="onNotesInput"
+      maxlength="500"
+    ></textarea>
+  </view>
+
+  <!-- 提交按钮 -->
+  <view class="submit-wrapper">
+    <button class="submit-btn" bindtap="handleSubmit">发布需求</button>
+  </view>
+</view>

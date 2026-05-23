@@ -1,0 +1,144 @@
+/* pages/orders/orders.wxss */
+
+.tabs {
+  display: flex;
+  background: #ffffff;
+  border-radius: 16rpx;
+  padding: 8rpx;
+  margin-bottom: 24rpx;
+}
+
+.tab-item {
+  flex: 1;
+  text-align: center;
+  padding: 20rpx 0;
+  font-size: 28rpx;
+  color: #636E72;
+  position: relative;
+}
+
+.tab-item.active {
+  color: #FF9D5C;
+  font-weight: 600;
+}
+
+.tab-indicator {
+  position: absolute;
+  bottom: 8rpx;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 40rpx;
+  height: 4rpx;
+  background: #FF9D5C;
+  border-radius: 2rpx;
+}
+
+.order-list {
+  display: flex;
+  flex-direction: column;
+  gap: 20rpx;
+}
+
+.order-card {
+  background: #ffffff;
+  border-radius: 20rpx;
+  padding: 28rpx;
+}
+
+.order-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20rpx;
+}
+
+.order-feeder {
+  display: flex;
+  align-items: center;
+}
+
+.feeder-avatar {
+  width: 70rpx;
+  height: 70rpx;
+  border-radius: 35rpx;
+  margin-right: 16rpx;
+}
+
+.feeder-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.feeder-name {
+  font-size: 28rpx;
+  font-weight: 500;
+  color: #2D3436;
+  margin-bottom: 6rpx;
+}
+
+.order-time {
+  font-size: 22rpx;
+  color: #999999;
+}
+
+.order-status {
+  padding: 8rpx 20rpx;
+  border-radius: 20rpx;
+  font-size: 24rpx;
+  font-weight: 500;
+}
+
+.status-ongoing {
+  background: rgba(255, 157, 92, 0.1);
+  color: #FF9D5C;
+}
+
+.status-completed {
+  background: rgba(76, 175, 80, 0.1);
+  color: #4CAF50;
+}
+
+.order-services {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10rpx;
+  margin-bottom: 20rpx;
+}
+
+.service-tag {
+  background: #F5F5F5;
+  color: #636E72;
+  font-size: 22rpx;
+  padding: 8rpx 16rpx;
+  border-radius: 12rpx;
+}
+
+.order-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 20rpx;
+  border-top: 1rpx solid #F5F5F5;
+}
+
+.order-price {
+  display: flex;
+  align-items: baseline;
+}
+
+.price-label {
+  font-size: 24rpx;
+  color: #636E72;
+  margin-right: 8rpx;
+}
+
+.price-value {
+  font-size: 32rpx;
+  font-weight: 600;
+  color: #FF9D5C;
+}
+
+.order-arrow {
+  font-size: 28rpx;
+  color: #CCCCCC;
+}

@@ -1,0 +1,57 @@
+<!--pages/orders/orders.wxml-->
+<view class="container">
+  <!-- Tab 标签 -->
+  <view class="tabs">
+    <view 
+      wx:for="{{tabs}}" 
+      wx:key="*this" 
+      class="tab-item {{activeTab === index ? 'active' : ''}}"
+      data-index="{{index}}"
+      bindtap="handleTabChange"
+    >
+      {{item}}
+      <view wx:if="{{activeTab === index}}" class="tab-indicator"></view>
+    </view>
+  </view>
+
+  <!-- 订单列表 -->
+  <view class="order-list">
+    <view 
+      wx:for="{{orders}}" 
+      wx:key="id" 
+      class="order-card"
+      data-id="{{item.id}}"
+      bindtap="handleOrderDetail"
+    >
+      <view class="order-header">
+        <view class="order-feeder">
+          <image class="feeder-avatar" src="{{item.feederAvatar}}" mode="aspectFill"></image>
+          <view class="feeder-info">
+            <view class="feeder-name">{{item.feederName}}</view>
+            <view class="order-time">{{item.startTime}}</view>
+          </view>
+        </view>
+        <view class="order-status status-{{item.statusType}}">{{item.status}}</view>
+      </view>
+      
+      <view class="order-services">
+        <text 
+          wx:for="{{item.services}}" 
+          wx:key="*this" 
+          wx:for-item="service"
+          class="service-tag"
+        >
+          {{service}}
+        </text>
+      </view>
+      
+      <view class="order-footer">
+        <view class="order-price">
+          <text class="price-label">合计</text>
+          <text class="price-value">¥{{item.price}}</text>
+        </view>
+        <view class="order-arrow">></view>
+      </view>
+    </view>
+  </view>
+</view>

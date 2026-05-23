@@ -1,0 +1,60 @@
+<!--pages/feeder-detail/feeder-detail.wxml-->
+<view class="container">
+  <!-- 喂养师信息 -->
+  <view class="feeder-card">
+    <view class="feeder-header">
+      <image class="feeder-avatar" src="{{feeder.avatar}}" mode="aspectFill"></image>
+      <view class="feeder-info">
+        <view class="feeder-name-row">
+          <text class="feeder-name">{{feeder.name}}</text>
+          <view wx:if="{{feeder.isVerified}}" class="verified-badge">✓ 已认证</view>
+        </view>
+        <view class="feeder-rating">
+          <text class="rating-star">⭐</text>
+          <text class="rating-score">{{feeder.rating}}</text>
+          <text class="review-count">({{feeder.reviewCount}}条评价)</text>
+        </view>
+        <view class="feeder-tags">
+          <text wx:for="{{feeder.tags}}" wx:key="*this" class="tag">{{item}}</text>
+        </view>
+      </view>
+    </view>
+    <view class="feeder-bio">{{feeder.bio}}</view>
+    <view class="feeder-services">
+      <text class="services-label">服务项目：</text>
+      <view class="service-tags">
+        <text wx:for="{{feeder.services}}" wx:key="*this" class="service-tag">{{item}}</text>
+      </view>
+    </view>
+    <view class="feeder-price">
+      <text class="price-label">收费：</text>
+      <text class="price-value">¥{{feeder.pricePerHour}}</text>
+      <text class="price-unit">/小时</text>
+    </view>
+  </view>
+
+  <!-- 评价列表 -->
+  <view class="reviews-section">
+    <view class="section-header">
+      <text class="section-title">用户评价</text>
+    </view>
+    <view class="review-list">
+      <view wx:for="{{reviews}}" wx:key="id" class="review-card">
+        <view class="review-header">
+          <text class="review-user">{{item.userName}}</text>
+          <view class="review-rating">
+            <text wx:for="{{item.rating}}" wx:key="*this" wx:for-item="star">⭐</text>
+          </view>
+        </view>
+        <view class="review-content">{{item.content}}</view>
+        <view class="review-time">{{item.time}}</view>
+      </view>
+    </view>
+  </view>
+
+  <!-- 底部按钮 -->
+  <view class="footer-actions">
+    <button class="action-btn secondary" bindtap="handleContact">联系</button>
+    <button class="action-btn primary" bindtap="handleBook">预约服务</button>
+  </view>
+</view>
